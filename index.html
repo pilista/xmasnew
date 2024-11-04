@@ -22,6 +22,7 @@
             position: absolute; /* Position the countdown box absolutely */
             top: 200px; /* Distance from the top */
             left: 100px; /* Distance from the left */
+            background: rgba(0, 0, 0, 0.7); /* Slightly transparent background */
             padding: 20px;
             border-radius: 10px;
             width: 80%;
@@ -33,6 +34,7 @@
             font-weight: bold;
             text-align: left;
             margin: 0;
+            background: none; /* Remove any background */
         }
 
         .countdown .left {
@@ -40,12 +42,20 @@
             font-weight: bold;
             text-align: left;
             margin: 0;
+            background: none; /* Remove any background */
         }
 
         .countdown .until {
             font-size: 1.5em; /* Smaller font size for "UNTIL CHRISTMAS" */
             margin: 0;
             text-align: left;
+            background: none; /* Remove any background */
+        }
+
+        /* Remove highlight color on text selection */
+        ::selection {
+            background: transparent; /* Make selection background transparent */
+            color: inherit; /* Keep the text color unchanged */
         }
     </style>
 </head>
