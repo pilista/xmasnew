@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Christmas Countdown</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: Arial, arial;
+            background-image: url('1.png'); /* Replace with your background image URL */
+            background-size: cover;
+            background-position: center;
+            width: 1080px;
+            height: 1080px;
+            color: white;
+            position: relative;
+        }
+
+        .countdown {
+        	position: absolute; /* Position the countdown box absolutely */
+            top: 200px; /* Distance from the top */
+            left: 100px; /* Distance from the left */
+            background: rgba(0, 0, 0); /* Set to transparent */
+            padding: 20px;
+            border-radius: 10px;
+            width: 80%;
+            max-width: 600px;
+        }
+
+        .countdown .days {
+            font-size: 6em;/* Larger font size for days */
+            font-weight: bold;
+            text-align: left;
+            margin: 0;
+        }
+
+        .countdown .left {
+            font-size: 6em; /* Medium font size for "LEFT" */
+            font-weight: bold;
+            text-align: left;
+            margin: 0;
+        }
+
+        .countdown .until {
+            font-size: 1.5em; /* Smaller font size for "UNTIL CHRISTMAS" */
+            margin: 0;
+            text-align: left;
+        }
+    </style>
+</head>
+<body>
+
+<div class="countdown">
+    <h1 class="days" id="timer">XX DAYS</h1>
+    <p class="left">LEFT</p>
+    <p class="until">UNTIL CHRISTMAS</p>
+</div>
+
+<script>
+    // Set the date we're counting down to
+    const countDownDate = new Date("Dec 25, 2024 00:00:00").getTime();
+
+    // Update the countdown every day
+    const x = setInterval(function() {
+        // Get today's date and time
+        const now = new Date().getTime();
+
+        // Find the distance between now and the count down date
+        const distance = countDownDate - now;
+
+        // Time calculations for days
+        const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+
+        // Display the result in the element with id="timer"
+        document.getElementById("timer").innerHTML = days + " DAYS";
+
+        // If the countdown is over, write some text 
+        if (distance < 0) {
+            clearInterval(x);
+            document.getElementById("timer").innerHTML = "Merry Christmas!";
+            document.querySelector(".left").innerHTML = ""; // Clear "LEFT"
+            document.querySelector(".until").innerHTML = ""; // Clear "UNTIL CHRISTMAS"
+        }
+    }, 1000 * 60 * 60 * 24); // Update every day
+</script>
+
+</body>
+</html>
